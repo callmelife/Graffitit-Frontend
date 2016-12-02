@@ -23,7 +23,6 @@ const uploadPicture = function(data) {
 };
 
 const deletePicture = function(id) {
-
   return $.ajax({
     method: 'DELETE',
     url: app.host + '/battles/' + id,
@@ -33,40 +32,16 @@ const deletePicture = function(id) {
   });
 };
 
-
-// const changePassword = function(data){
-//   return $.ajax({
-//     method: 'PATCH',
-//     url: app.host + '/change-password/' + app.user.id,
-//     headers: {
-//       Authorization: 'Token token=' + app.user.token,
-//     },
-//     data: data,
-//   });
-// };
-
-//
-// const uploadPicture = function(){
-//
-//   return $.ajax({
-//     url: app.host + '/battles',
-//     method: 'POST',
-//     headers: {
-//       Authorization: 'Token token=' + app.user.token,
-//     },
-//   }).then(data => app.battle = data.battle);
-// };
-
-
-// const createGame = function(){
-//   return $.ajax({
-//     url: app.host + '/games',
-//     method: "POST",
-//     headers: {
-//       Authorization: 'Token token=' + app.user.token,
-//     },
-//   }).then(data=>app.game = data.game);
-//   };
+const commentPicture = function (id, data) {
+  return $.ajax({
+    method: 'PATCH',
+    url: app.host + '/battles/' + id,
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    },
+    data: data,
+  });
+};
 
 
 // Authorization: 'Token token=' + app.user.token,
@@ -97,42 +72,10 @@ module.exports = {
   getPicture,
   uploadPicture,
   deletePicture,
+  commentPicture,
   // myRequest,
 };
-//
-//
-//  // Code from TTT:
-//
-//
-//
-//
-//
-//
-// 'use strict';
-//
-// const app = require('../app.js');
-// // const gameInfo = require('../index.js');
-//
-// const createGame = function(){
-//   return $.ajax({
-//     url: app.host + '/games',
-//     method: "POST",
-//     headers: {
-//       Authorization: 'Token token=' + app.user.token,
-//     },
-//   }).then(data=>app.game = data.game);
-//   };
-//
-// const getGame = () => {
-//   return $.ajax({
-//   url: app.host + '/games/' + '?over=true',
-//   method: "GET",
-//   headers: {
-//     Authorization: 'Token token=' + app.user.token,
-//   }
-// });
-// };
-//
+
 // const updateGame = (index,value,trueOrFalse) => {
 //     return $.ajax({
 //       url: app.host + '/games/'+ app.game.id,

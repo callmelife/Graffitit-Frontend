@@ -11,8 +11,17 @@ const gameEvents = require('./game/events.js');
   // $('#change-password').hide();
 window.app = require('./app');
 
+
+
 $(() => {
   // gameEvents.addHandlers();
   authEvents.addHandlers();
   gameEvents.addHandlers();
+  $('#sign-in').find('input[name="credentials[email]"]').val("jk@1.com");
+  $('#sign-in').find('input[name="credentials[password]"]').val("1");
+  $('#sign-in').trigger('submit');
+  $('.get-picture-button').hide();
+  $('.delete-btn').hide();
+
+
 });

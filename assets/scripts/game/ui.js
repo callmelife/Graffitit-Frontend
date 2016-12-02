@@ -1,10 +1,9 @@
 'use strict';
 
 const app = require('../app.js');
-const api = require ('./api');
+// const api = require ('./api');
 
 const getPictureSuccess = (data) => {
-  console.log(data)
   renderItem(data);
 };
 
@@ -29,16 +28,20 @@ let template = `<div data-item="${item.id}" class="graffiti-one-container">
        <div class="col-md-12 description-container">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
      </div>
   </div>
-  <div class="favorite-btn-container">
-    <form action="">
-      <input type="submit" class="graffiti-one-favorite-btn" name="graffiti-one-favorite-btn" value="This One Is Me">
+
+  <div class="comment-box">
+    <form id="comment-form">
+      <input type="text" class="comment-container" name="battle[comment]">
+      <input type="submit" class="comment-btn">
+    <div class="comment-display">${item.comment}</div>
     </form>
   </div>
-  <div class="delete-btn-container">
-    <form id='#delete-btn-form'>
+<!--  <div class="delete-btn-container">
+    <form id='delete-btn-form'>
+      <input type="text" name="battle[id]" placeholder="ID">
       <input type="submit" class='delete-btn' name='delete-picture-btn' value="Click this button to delete this image and information">
     </form>
-  </div>
+  </div> -->
 </div>`
 
 $('.graffiti-main').html(template);
@@ -51,8 +54,15 @@ console.log(data);
 };
 
 const deletePictureSuccess = (id) => {
-debugger;
-  app.game.id.shift();
+  app.items.shift();
+  if(app.items.length === 0 ){
+      $('.get-picture-button').hide();
+    return;
+  };
+};
+
+const commentPictureSuccess = (id) => {
+  $('.comment-display').text(id);
 };
 
 const failure = (err) => {
@@ -63,6 +73,7 @@ module.exports = {
   getPictureSuccess,
   uploadPictureSuccess,
   deletePictureSuccess,
+  commentPictureSuccess,
   failure,
 };
 //
