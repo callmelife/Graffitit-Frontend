@@ -2,7 +2,6 @@
 
 const app = require('../app.js');
 
-
 const getPicture = function() {
   return $.ajax({
     url: app.host + '/battles',
@@ -12,14 +11,77 @@ const getPicture = function() {
 
 window.getPicture = getPicture;
 
-const uploadPicture = function(data){
-  console.log(data);
+const uploadPicture = function(data) {
   return $.ajax({
-    url: app.host + '/battles',
+    url: app.host + '/battles/',
     method: 'POST',
-    data,
+    headers: {
+        Authorization: 'Token token=' + app.user.token,
+      },
+      data,
   });
 };
+
+const deletePicture = function(id) {
+
+  return $.ajax({
+    method: 'DELETE',
+    url: app.host + '/battles/' + id,
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    },
+  });
+};
+
+
+// const changePassword = function(data){
+//   return $.ajax({
+//     method: 'PATCH',
+//     url: app.host + '/change-password/' + app.user.id,
+//     headers: {
+//       Authorization: 'Token token=' + app.user.token,
+//     },
+//     data: data,
+//   });
+// };
+
+//
+// const uploadPicture = function(){
+//
+//   return $.ajax({
+//     url: app.host + '/battles',
+//     method: 'POST',
+//     headers: {
+//       Authorization: 'Token token=' + app.user.token,
+//     },
+//   }).then(data => app.battle = data.battle);
+// };
+
+
+// const createGame = function(){
+//   return $.ajax({
+//     url: app.host + '/games',
+//     method: "POST",
+//     headers: {
+//       Authorization: 'Token token=' + app.user.token,
+//     },
+//   }).then(data=>app.game = data.game);
+//   };
+
+
+// Authorization: 'Token token=' + app.user.token,
+//       },
+//       data: {
+//         "game": {
+//           "cell": {
+//             "index": index,
+//             "value": value
+//           },
+//           "over": trueOrFalse
+//         }
+//       }
+//     }).then(data=>app.game = data.game);
+//   };
 
 
 //
@@ -34,6 +96,7 @@ const uploadPicture = function(data){
 module.exports = {
   getPicture,
   uploadPicture,
+  deletePicture,
   // myRequest,
 };
 //

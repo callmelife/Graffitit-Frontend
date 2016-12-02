@@ -14,20 +14,25 @@
 
 <div class="upload-image-container">
   <div class="upload-image-form-container">
-    <form>
+    <form id="upload-picture-form">
       <fieldset>
-        Title: <input type="text" name="pic-title" placeholder="Name of piece"><br>
-        Artist: <input type="text" name="pic-artist" placeholder="Artist's Name"><br>
-        Description: <input type="text" name="pic-description" placeholder="Description of piece"><br>
-        Location: <input type="text" name="pic-location" placeholder="Location of piece"><br>
-        Date Photographed: <input type="date" name="pic-date"><br>
-        URL: <input type="text" name="pic-url" placeholder="URL to image"><br>
+        Title: <input type="text" name="battle[title]" placeholder="Name of piece"><br>
+        Artist: <input type="text" name="battle[artist]" placeholder="Artist's Name"><br>
+        Description: <input type="text" name="battle[description]" placeholder="Description of piece"><br>
+        Location: <input type="text" name="battle[location]" placeholder="Location of piece"><br>
+        Date Photographed: <input type="battle[date]" name="pic-date"><br>
+        URL: <input type="text" name="battle[url]" placeholder="URL to image"><br>
       </fieldset>
+        <input type="submit" class="upload-picture-btn" name="upload-btn" value="Click Here to Post Your Favorite Graffiti picture and information!">
     </form>
   </div>
-  <div class="upload-image-btn-container">
-    <input type="submit" class="upload-picture-btn" name="upload-btn" value="Click Here to Post Your Favorite Graffiti picture and information!">
-  </div>
+  <!--<form id="upload-picture-form" >
+    <div class="upload-image-btn-container">
+      <input type="submit" class="upload-picture-btn" name="upload-btn" value="Click Here to Post Your Favorite Graffiti picture and information!">
+      <div class="upload-image-success">
+      </div>
+    </div>
+  </form> -->
 </div>
 
 
@@ -40,7 +45,11 @@
           <div class="get-picture-display"></div>
         </form>
       </div>
-
+      <div class="delete-btn-container">
+        <form id='delete-btn-form'>
+          <input type="submit" class='delete-btn' name='delete-picture-btn' value="Click this button to delete this image and information">
+        </form>
+      </div>
 <!-- This div will contain all code relevant to the graffiti game -->
       <div class="graffiti-main">
 
@@ -64,11 +73,16 @@
                <div class="col-md-12 description-container">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
              </div>
           </div>
-          <div class="favorite-btn-container">
+          <div class="delete-btn-container">
+            <form id='delete-btn-form'>
+              <input type="submit" class='delete-btn' name='delete-picture-btn' value="Click this button to delete this image and information">
+            </form>
+          </div>
+        <!--  <div class="favorite-btn-container">
             <form action="">
               <input type="submit" class="graffiti-one-favorite-btn" name="graffiti-one-favorite-btn" value="This One Is Me">
             </form>
-          </div>
+          </div> -->
         </div>
 
 
@@ -82,15 +96,16 @@
 
 
 
+
 <!-- This div contains all code relevant to img two-->
-        <div class="graffiti-two-container">
+      <div class="graffiti-two-container">
           <div class="graffiti-two-img-container">
             <a href="#">
               <img src="#" alt="Image to be linked to" class="graffiti-two-img">
             </a>
           </div>
 <!-- This div contains all code relevant to img two's info-->
-          <div class="graffiti-two-info">
+       <div class="graffiti-two-info">
              <div class="row">
                <div class="col-md-4 tag-name-container">Tag Name:</div>
                <div class="col-md-4 artist-name-container">Artist:</div>
@@ -107,11 +122,15 @@
             </form>
           </div>
         </div>
+
       </div>
+
+
+
 
 <!-- This div contains all code relevant to the controller buttons.
 These buttons will bring a new set of images to compare-->
-        <div class="graffiti-one-btn-container">
+    <!--    <div class="graffiti-one-btn-container">
           <form id="graffiti-one-previous-btn" action="">
             <fieldset>
                 <input type="submit" name="submit-previous" value="Previous Image">
@@ -122,7 +141,7 @@ These buttons will bring a new set of images to compare-->
                 <input type="submit" name="submit-next" value="Next Image">
             </fieldset>
           </form>
-        </div>
+        </div> -->
 
 
 

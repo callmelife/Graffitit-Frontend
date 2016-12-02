@@ -1,24 +1,16 @@
 'use strict';
 
 const app = require('../app.js');
+const api = require ('./api');
 
 const getPictureSuccess = (data) => {
   console.log(data)
-  app.game = data.game;
-  // $(".tag-name-container").text();
-  // $(".artist-name-container").text("It work");
-  // $(".location-container").text("It work");
-  // $(".date-container").text("It work");
-  // $(".url-container").val();
-  // $(".description-container").val();
-  // data.map(item=>renderItem(item));
   renderItem(data);
-
 };
 
 function renderItem(item){
 
-let template = `<div class="graffiti-one-container">
+let template = `<div data-item="${item.id}" class="graffiti-one-container">
   <div class="graffiti-one-img-container">
     <a href="#">
       <img src="${item.url || "#"}" alt="Image to be linked to" class="graffiti-one-img">
@@ -42,11 +34,26 @@ let template = `<div class="graffiti-one-container">
       <input type="submit" class="graffiti-one-favorite-btn" name="graffiti-one-favorite-btn" value="This One Is Me">
     </form>
   </div>
+  <div class="delete-btn-container">
+    <form id='#delete-btn-form'>
+      <input type="submit" class='delete-btn' name='delete-picture-btn' value="Click this button to delete this image and information">
+    </form>
+  </div>
 </div>`
-$('.graffiti-main').html(template);
 
+$('.graffiti-main').html(template);
 }
 
+const uploadPictureSuccess = (data) => {
+console.log(data);
+  app.items.push(data);
+  $(".upload-image-success").text('Image was successfully uploaded');
+};
+
+const deletePictureSuccess = (id) => {
+debugger;
+  app.game.id.shift();
+};
 
 const failure = (err) => {
   // handle failure
@@ -54,6 +61,8 @@ const failure = (err) => {
 
 module.exports = {
   getPictureSuccess,
+  uploadPictureSuccess,
+  deletePictureSuccess,
   failure,
 };
 //
