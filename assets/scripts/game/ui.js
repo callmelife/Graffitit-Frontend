@@ -48,7 +48,6 @@ $('.graffiti-main').html(template);
 }
 
 const uploadPictureSuccess = (data) => {
-console.log(data);
   app.items.push(data);
   $(".upload-image-success").text('Image was successfully uploaded');
 };
