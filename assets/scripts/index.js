@@ -11,8 +11,6 @@ const gameEvents = require('./game/events.js');
   // $('#change-password').hide();
 window.app = require('./app');
 
-
-
 $(() => {
   // gameEvents.addHandlers();
   authEvents.addHandlers();
@@ -22,6 +20,4 @@ $(() => {
   $('#sign-in').trigger('submit');
   $('.get-picture-button').hide();
   $('.delete-btn').hide();
-
-
 });
