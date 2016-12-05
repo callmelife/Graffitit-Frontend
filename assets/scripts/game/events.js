@@ -7,7 +7,7 @@ const app = require('../app');
 
 const onGetPicture = function (event) {
   event.preventDefault();
-  let firstItem = app.items.shift()
+  let firstItem = app.items.shift();
   ui.getPictureSuccess(firstItem);
   app.items.push(firstItem);
 };
