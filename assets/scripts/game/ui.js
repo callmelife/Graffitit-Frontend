@@ -48,6 +48,7 @@ $('.graffiti-main').html(template);
 }
 
 const uploadPictureSuccess = (data) => {
+  app.items = app.items || [];
   app.items.push(data);
   console.log('Upload is working');
 };
@@ -65,7 +66,7 @@ const commentPictureSuccess = (id) => {
 };
 
 const failure = (err) => {
-  // handle failure
+  console.error(err);
 };
 
 module.exports = {
