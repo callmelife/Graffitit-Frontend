@@ -49,8 +49,7 @@ body {
 
 }
 
-.graffiti-one-container,
-.graffiti-two-container {
+.graffiti-one-container {
   background-color: $grey;
   border: 10px solid $maroon;
   height: auto;
@@ -58,11 +57,14 @@ body {
   margin-left: 5%;
   margin-top: 5%;
   padding-bottom: 5%;
-  width: 40%;
+  width: 90%;
+}
+img {
+  height: 300px;
+  width: 300px;
 }
 
-.graffiti-one-info,
-.graffiti-two-info {
+.graffiti-one-info {
   border: 4px solid $royal-purple;
   background-color: $royal-purple;
   height: 45%;
@@ -71,8 +73,7 @@ body {
   width: 90%;
 }
 
-.graffiti-one-img-container,
-.graffiti-two-img-container {
+.graffiti-one-img-container {
   background-color: $gold;
   border: 2px solid $gold;
   height: 40%;
@@ -118,6 +119,7 @@ body {
 
 .graffiti-one-btn-container {
   display: flex;
+  width: 90%;
 }
 
 #favorite-btn-one {
@@ -129,8 +131,7 @@ body {
   width: 100px;
 }
 
-.graffiti-one-favorite-btn,
-.graffiti-two-favorite-btn {
+.graffiti-one-favorite-btn {
   color: $black;
   height: 100px;
   width: 200px;

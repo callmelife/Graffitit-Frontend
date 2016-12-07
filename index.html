@@ -9,6 +9,43 @@
     </head>
 
     <body class="container-fluid">
+      <div class="user-auth">
+        <form id="sign-up">
+          <fieldset>
+            <div class='auth-instructions'>Sign Up Below!</div>
+            <input type="text" name="credentials[email]" value="" placeholder="Email">
+            <input type="password" name="credentials[password]" value="" placeholder="Password">
+            <input type="password" name="credentials[password_confirmation]" value="" placeholder="Confirm Password">
+            <input type="submit" name="submit" value="Sign up!">
+            <div class="sign-up-display"></div>
+          </fieldset>
+        </form>
+        <form id="sign-in">
+          <fieldset>
+            <div class='auth-instructions'>Sign In Below!</div>
+            <input id="sign-in-email"type="text" name="credentials[email]" value="" placeholder="Email">
+            <input id="sign-in-password" type="password" name="credentials[password]" value="" placeholder="Password">
+            <input type="submit" name="submit" value="Sign in!">
+            <div class="sign-in-display"></div>
+          </fieldset>
+        </form>
+        <form id="sign-out">
+          <fieldset>
+            <div class='auth-instructions'>Sign Out Below!</div>
+            <input type="submit" name="submit" value="Sign out!">
+            <div class="sign-out-display"></div>
+          </fieldset>
+        </form>
+        <form id="change-password">
+          <fieldset>
+            <div class='auth-instructions'>Change Password Below!</div>
+            <input type="password" name="passwords[old]" value="" placeholder="Old Password">
+            <input type="password" name="passwords[new]" value="" placeholder="New Password">
+            <input type="submit" name="submit" value="Change Password">
+            <div class="change-password-display"></div>
+          </fieldset>
+        </form>
+      </div>
 
 <!-- code will contain form to upload images -->
 
@@ -48,7 +85,7 @@
       <div class="delete-btn-container">
         <form id='delete-btn-form'>
           <!-- <input type="text" name="id"  placeholder="ID"> -->
-          <input type="submit" class='delete-btn'>
+          <input type="submit" class='delete-btn' name="DELETE PICTURE">
         </form>
       </div>
 <!-- This div will contain all code relevant to the graffiti game -->
@@ -90,43 +127,6 @@
       </div>
 
 <!-- This code is relevant to the user auth (sign up / in / out & change password)-->
-      <div class="user-auth">
-        <form id="sign-up">
-          <fieldset>
-            <div class='auth-instructions'>Sign Up Below!</div>
-            <input type="text" name="credentials[email]" value="" placeholder="Email">
-            <input type="password" name="credentials[password]" value="" placeholder="Password">
-            <input type="password" name="credentials[password_confirmation]" value="" placeholder="Confirm Password">
-            <input type="submit" name="submit" value="Sign up!">
-            <div class="sign-up-display"></div>
-          </fieldset>
-        </form>
-        <form id="sign-in">
-          <fieldset>
-            <div class='auth-instructions'>Sign In Below!</div>
-            <input type="text" name="credentials[email]" value="" placeholder="Email">
-            <input type="password" name="credentials[password]" value="" placeholder="Password">
-            <input type="submit" name="submit" value="Sign in!">
-            <div class="sign-in-display"></div>
-          </fieldset>
-        </form>
-        <form id="sign-out">
-          <fieldset>
-            <div class='auth-instructions'>Sign Out Below!</div>
-            <input type="submit" name="submit" value="Sign out!">
-            <div class="sign-out-display"></div>
-          </fieldset>
-        </form>
-        <form id="change-password">
-          <fieldset>
-            <div class='auth-instructions'>Change Password Below!</div>
-            <input type="password" name="passwords[old]" value="" placeholder="Old Password">
-            <input type="password" name="passwords[new]" value="" placeholder="New Password">
-            <input type="submit" name="submit" value="Change Password">
-            <div class="change-password-display"></div>
-          </fieldset>
-        </form>
-      </div>
 
     </body>
 </html>

@@ -15,6 +15,11 @@ $(() => {
   // gameEvents.addHandlers();
   authEvents.addHandlers();
   gameEvents.addHandlers();
-  $('.get-picture-button').hide();
-  $('.delete-btn').hide();
+  // $('.get-picture-button').hide();
+  // $('.delete-btn').hide();
+  //
+  $('#sign-in-email').val('test@test.com');
+  $('#sign-in-password').val('1');
+  $('#sign-in').submit();
+
 });

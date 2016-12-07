@@ -10,6 +10,10 @@ const onGetPicture = function (event) {
   let firstItem = app.items.shift();
   ui.getPictureSuccess(firstItem);
   app.items.push(firstItem);
+
+  // api.getPicture()
+  // .then(ui.getPictureSuccess)
+  // .catch(ui.failure);
 };
 
 const onUploadPicture = function (event) {
@@ -37,22 +41,24 @@ const onDeletePicture = function (event) {
 
 const onCommentPicture = function (event) {
   event.preventDefault();
-    let pictureComment = app.items[0];
+  console.log(event.target);
+  let id = $(event.target).data("item");
+  console.log(id);
+
+    // let pictureComment = app.items[0];
     let commentField = getFormFields(event.target);
     // let newComment = {
     //   comment: commentField.find('.comment-container').text()
     // };
-    api.commentPicture(pictureComment.id, commentField)
-
-    // , {
-    //   newComment
-    // });
-    .then(() => {
-      $('.comment-display').text(commentField.battle.comment)
-      app.items[0].comment = commentField.battle.comment
-
+    api.commentPicture(id, commentField)
+    .then(api.getPicture)
+    .then(data => app.items = data)
+    .then((data)=>{
+      app.items = data;
+      let firstItem = app.items.shift();
+      ui.getPictureSuccess(firstItem);
+      app.items.push(firstItem);
     })
-
     .catch(ui.failure);
 };
 
