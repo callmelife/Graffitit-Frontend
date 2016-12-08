@@ -48,6 +48,12 @@ let template = `<div data-item="${item.id}" class="graffiti-one-container">
       <input type="submit" class="comment-btn">
     </form>
   </div>
+  <div class="delete-btn-container">
+    <form id='delete-btn-form' data-item="${item.id}">
+      <!-- <input type="text" name="id"  placeholder="ID"> -->
+      <input type="submit" class='delete-btn' value="DELETE PICTURE">
+    </form>
+  </div>
 <!--  <div class="delete-btn-container">
     <form id='delete-btn-form'>
       <input type="text" name="battle[id]" placeholder="ID">
@@ -71,8 +77,9 @@ const uploadPictureSuccess = (data) => {
 
 const deletePictureSuccess = (id) => {
   console.log("SUCCESSFUL DELETE");
-  console.log(app.items.id);
+  console.log(app.items);
   app.items.shift();
+  console.log(app.items);
   if(app.items.length === 0 ){
       $('.get-picture-button').hide();
     return;
