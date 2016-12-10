@@ -1,24 +1,12 @@
 'use strict';
 
 const app = require('../app.js');
-// const api = require ('./api');
 
 const getPictureSuccess = (data) => {
-  console.log('pictureSuccessID', data.id);
-  console.log("SUCCESSFUL GET");
+  console.log('getPictureSuccess was successful', data.id);
   renderItem(data);
-  console.log(data.id);
+  $(".out-put-display").text("You successfully got images from the database!")
 };
-// const getPictureSuccess = (data) => {
-// // app.items = app.items || [];
-// if(app.items.length === 0 ) {
-//   alert("NONE HERE TO LOAD");
-// }
-//  else {
-//    renderItem(data);
-//  }
-// };
-
 
 function renderItem(item){
 let template = `<div data-item="${item.id}" class="graffiti-one-container">
@@ -66,24 +54,36 @@ $('.graffiti-main').html(template);
 }
 
 const uploadPictureSuccess = (data) => {
-  app.items = app.items || [];
+  console.log("checking if data getting passed to uploadPictureSuccess exists", data)
+  console.log(app.items);
+  console.log(data); // this contains the info as of now.
+  // app.items = app.items;
+  app.items = data;
+  console.log("checking if data getting passed to uploadPictureSuccess exists", data)
+  console.log("console log app.items", app.items);
+  console.log("console log data", data); // this contains the info as of now.
+  console.log("console log app.data", app.data)
+  console.log(app.items);
+  if (app.items.length > 0) {
   app.items.push(data);
+  console.log('data successfully pushed')
+  } else {
+
+  };
+
   console.log('Upload is working');
   console.log(data.id);
 };
 
-
-// DELELTE is currently deleting the object ahead of the one being displayed by get
-
 const deletePictureSuccess = (id) => {
   console.log("SUCCESSFUL DELETE");
   console.log(app.items);
-  app.items.shift();
+  // app.items.shift();
   console.log(app.items);
-  if(app.items.length === 0 ){
-      $('.get-picture-button').hide();
-    return;
-  }
+  // if(app.items.length === 0 ){
+  //     $('.get-picture-button').hide();
+  //   return;
+  // }
 };
 
 const commentPictureSuccess = (id) => {
@@ -95,14 +95,11 @@ const failure = (err) => {
   console.error(err);
 };
 
-// const deleteFailure = (err) => {
-//   alert("YOURE NOT ALLOWED TO DO THAT")
-// }
-
 module.exports = {
   getPictureSuccess,
   uploadPictureSuccess,
   deletePictureSuccess,
   commentPictureSuccess,
   failure,
+
 };
