@@ -4,11 +4,12 @@ const app = require('../app.js');
 
 const signInSuccess = (data) => {
   app.user = data.user;
+  app.counter = 0;
 };
 
 const signOutSuccess = () => {
   app.user = null;
-
+  app.counter = 0;
 };
 
 const changePasswordSuccess = () => {

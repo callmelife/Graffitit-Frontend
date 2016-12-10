@@ -7,23 +7,9 @@ const app = require('../app');
 
 const onGetPicture = function (event) {
   event.preventDefault();
-  console.log(app.items);
-  if (app.items.length > 0) {
-    console.log(app.items);
-    let firstItem = app.items.shift();
-    console.log(" maybe the error is here instead?");
-    ui.getPictureSuccess(firstItem);
-    app.items.push(firstItem);
-  } else {
-    console.log("is error in onGetPicture?");
-    console.log(app.items);
-    console.log(app.data);
-    let firstItem = app.items;
-    console.log(firstItem);
-    ui.getPictureSuccess(firstItem);
-    app.items.push();
-    console.log(firstItem);
-    }
+  api.getPicture()
+    .then(ui.getPictureSuccess)
+    .catch(ui.failure);
   };
 
 const onUploadPicture = function (event) {
@@ -31,8 +17,8 @@ const onUploadPicture = function (event) {
   let battle = getFormFields(event.target).battle;
     console.log(battle);
   api.uploadPicture({battle})
-  .then(ui.uploadPictureSuccess)
-  .catch(ui.failure);
+    .then(ui.uploadPictureSuccess)
+    .catch(ui.failure);
     console.log(battle);
   $('.get-picture-button').show();
   $('.delete-btn').show();
@@ -43,21 +29,21 @@ const onDeletePicture = function (event) {
   console.log(event.target);
     let id = $(event.target).data("item");
     api.deletePicture(id)
-    .then(ui.deletePictureSuccess)
-    .then(api.getPicture)
-    .then(data => app.items = data)
-    .then((data)=>{
-      app.items = data;
-      if (app.items.length > 0) {
-        console.log("This shouldnt fire");
-        let firstItem = app.items.shift();
-        ui.getPictureSuccess(firstItem);
-        app.items.push(firstItem);
-      } else {
-        alert('there are no items to get!');
-      }
-    })
-    .catch(ui.failure);
+      .then(ui.deletePictureSuccess)
+      .then(api.getPicture)
+      .then(data => app.items = data)
+      .then((data)=>{
+        app.items = data;
+        if (app.items.length > 0) {
+          console.log("This shouldnt fire");
+          let firstItem = app.items.shift();
+          ui.getPictureSuccess(firstItem);
+          app.items.push(firstItem);
+        } else {
+          alert('there are no items to get!');
+        }
+      })
+      .catch(ui.failure);
     $('.graffiti-one-container').hide();
 };
 
@@ -68,15 +54,15 @@ const onCommentPicture = function (event) {
   console.log(id);
     let commentField = getFormFields(event.target);
     api.commentPicture(id, commentField)
-    .then(api.getPicture)
-    .then(data => app.items = data)
-    .then((data)=>{
-      app.items = data;
-      let firstItem = app.items.shift();
-      ui.getPictureSuccess(firstItem);
-      app.items.push(firstItem);
-    })
-    .catch(ui.failure);
+      .then(api.getPicture)
+      .then(data => app.items = data)
+      .then((data)=>{
+        app.items = data;
+        let firstItem = app.items.shift();
+        ui.getPictureSuccess(firstItem);
+        app.items.push(firstItem);
+      })
+      .catch(ui.failure);
 };
 
 const addHandlers = () => {

@@ -2,5 +2,5 @@
 
 module.exports = {
   // host: 'https://graffiti-gallery.herokuapp.com',
-    host: 'http://localhost:4741',
+  host: 'http://localhost:4741',
 };

@@ -2,12 +2,6 @@
 
 const app = require('../app.js');
 
-const getPictureSuccess = (data) => {
-  console.log('getPictureSuccess was successful', data.id);
-  renderItem(data);
-  $(".out-put-display").text("You successfully got images from the database!")
-};
-
 function renderItem(item){
 let template = `<div data-item="${item.id}" class="graffiti-one-container">
   <div class="graffiti-one-img-container">
@@ -48,25 +42,34 @@ let template = `<div data-item="${item.id}" class="graffiti-one-container">
       <input type="submit" class='delete-btn' name='delete-picture-btn' value="Click this button to delete this image and information">
     </form>
   </div> -->
-</div>`
+</div>`;
 
 $('.graffiti-main').html(template);
 }
 
+const getPictureSuccess = (data) => {
+  renderItem(data[app.counter]);
+  app.counter += 1;
+  if (app.counter >= data.length) {
+    app.counter = 0;
+  }
+  $(".out-put-display").text("You successfully got images from the database!");
+};
+
 const uploadPictureSuccess = (data) => {
-  console.log("checking if data getting passed to uploadPictureSuccess exists", data)
+  console.log("checking if data getting passed to uploadPictureSuccess exists", data);
   console.log(app.items);
   console.log(data); // this contains the info as of now.
   // app.items = app.items;
   app.items = data;
-  console.log("checking if data getting passed to uploadPictureSuccess exists", data)
+  console.log("checking if data getting passed to uploadPictureSuccess exists", data);
   console.log("console log app.items", app.items);
   console.log("console log data", data); // this contains the info as of now.
-  console.log("console log app.data", app.data)
+  console.log("console log app.data", app.data);
   console.log(app.items);
   if (app.items.length > 0) {
   app.items.push(data);
-  console.log('data successfully pushed')
+  console.log('data successfully pushed');
   } else {
 
   };
