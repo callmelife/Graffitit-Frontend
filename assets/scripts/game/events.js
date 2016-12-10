@@ -31,18 +31,7 @@ const onDeletePicture = function (event) {
     api.deletePicture(id)
       .then(ui.deletePictureSuccess)
       .then(api.getPicture)
-      .then(data => app.items = data)
-      .then((data)=>{
-        app.items = data;
-        if (app.items.length > 0) {
-          console.log("This shouldnt fire");
-          let firstItem = app.items.shift();
-          ui.getPictureSuccess(firstItem);
-          app.items.push(firstItem);
-        } else {
-          alert('there are no items to get!');
-        }
-      })
+      .then(ui.getPictureSuccess)
       .catch(ui.failure);
     $('.graffiti-one-container').hide();
 };
@@ -55,13 +44,7 @@ const onCommentPicture = function (event) {
     let commentField = getFormFields(event.target);
     api.commentPicture(id, commentField)
       .then(api.getPicture)
-      .then(data => app.items = data)
-      .then((data)=>{
-        app.items = data;
-        let firstItem = app.items.shift();
-        ui.getPictureSuccess(firstItem);
-        app.items.push(firstItem);
-      })
+      .then(ui.getPictureSuccess)
       .catch(ui.failure);
 };
 

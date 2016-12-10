@@ -48,25 +48,34 @@ $('.graffiti-main').html(template);
 }
 
 const getPictureSuccess = (data) => {
-  renderItem(data[app.counter]);
-  app.counter += 1;
-  if (app.counter >= data.length) {
-    app.counter = 0;
-  }
+  console.log(data);
+  console.log("---- get picture success should be working ----")
+  if (Array.isArray(data.battles) && data.battles.length === 0){
+    alert("--- NO DATA IN THE DB, this is an empty array----")
+   // If the object is an array AND it is also an empty array do this
+ } else {
+   renderItem(data[app.counter]);
+   app.counter += 1;
+   if (app.counter >= data.length) {
+     app.counter = 0;
+   }
+ // Else do this stuff (like if you are actually returned data)
+ }
+
   $(".out-put-display").text("You successfully got images from the database!");
 };
 
 const uploadPictureSuccess = (data) => {
-  console.log("checking if data getting passed to uploadPictureSuccess exists", data);
-  console.log(app.items);
-  console.log(data); // this contains the info as of now.
+  // console.log("checking if data getting passed to uploadPictureSuccess exists", data);
+  // console.log(app.items);
+  // console.log(data); // this contains the info as of now.
   // app.items = app.items;
   app.items = data;
-  console.log("checking if data getting passed to uploadPictureSuccess exists", data);
-  console.log("console log app.items", app.items);
-  console.log("console log data", data); // this contains the info as of now.
-  console.log("console log app.data", app.data);
-  console.log(app.items);
+  // console.log("checking if data getting passed to uploadPictureSuccess exists", data);
+  // console.log("console log app.items", app.items);
+  // console.log("console log data", data); // this contains the info as of now.
+  // console.log("console log app.data", app.data);
+  // console.log(app.items);
   if (app.items.length > 0) {
   app.items.push(data);
   console.log('data successfully pushed');
@@ -78,11 +87,11 @@ const uploadPictureSuccess = (data) => {
   console.log(data.id);
 };
 
-const deletePictureSuccess = (id) => {
+const deletePictureSuccess = () => {
   console.log("SUCCESSFUL DELETE");
-  console.log(app.items);
+  // console.log(app.items);
   // app.items.shift();
-  console.log(app.items);
+  // console.log(app.items);
   // if(app.items.length === 0 ){
   //     $('.get-picture-button').hide();
   //   return;
