@@ -54,11 +54,11 @@ const getPictureSuccess = (data) => {
     alert("--- NO DATA IN THE DB, this is an empty array----")
    // If the object is an array AND it is also an empty array do this
  } else {
-   renderItem(data[app.counter]);
-   app.counter += 1;
    if (app.counter >= data.length) {
      app.counter = 0;
    }
+   renderItem(data[app.counter]);
+   app.counter += 1;
  // Else do this stuff (like if you are actually returned data)
  }
 

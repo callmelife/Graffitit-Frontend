@@ -49,7 +49,7 @@ const onCommentPicture = function (event) {
 };
 
 const addHandlers = () => {
-  api.getPicture().then(data => app.items = data);
+  // api.getPicture().then(data => app.items = data);
   $('#get-picture-form').on('submit', onGetPicture);
   $('#upload-picture-form').on('submit', onUploadPicture);
   $(document).on('submit', '#delete-btn-form', onDeletePicture);
