@@ -18,7 +18,7 @@ const onUploadPicture = function (event) {
     console.log(battle);
   api.uploadPicture({battle})
     .then(ui.uploadPictureSuccess)
-    .catch(ui.failure);
+    .catch(ui.failureToUploadUrl);
     console.log(battle);
   $('.get-picture-button').show();
   $('.delete-btn').show();

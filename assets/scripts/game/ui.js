@@ -70,18 +70,18 @@ const uploadPictureSuccess = (data) => {
   // console.log(app.items);
   // console.log(data); // this contains the info as of now.
   // app.items = app.items;
-  app.items = data;
+  // app.items = data;
   // console.log("checking if data getting passed to uploadPictureSuccess exists", data);
   // console.log("console log app.items", app.items);
   // console.log("console log data", data); // this contains the info as of now.
   // console.log("console log app.data", app.data);
   // console.log(app.items);
-  if (app.items.length > 0) {
-  app.items.push(data);
-  console.log('data successfully pushed');
-  } else {
-
-  };
+  // if (app.items.length > 0) {
+  // app.items.push(data);
+  // console.log('data successfully pushed');
+  // } else {
+  //
+  // };
 
   console.log('Upload is working');
   console.log(data.id);
@@ -107,11 +107,15 @@ const failure = (err) => {
   console.error(err);
 };
 
+const failureToUploadUrl = (err) => {
+  alert("You need to use a proper URL / make sure your eckend is running correctly / the requesttimed out. Or it could be something else! Sorry about that! I'd suggest googleing it!");
+}
+
 module.exports = {
   getPictureSuccess,
   uploadPictureSuccess,
   deletePictureSuccess,
   commentPictureSuccess,
   failure,
-
+  failureToUploadUrl,
 };
