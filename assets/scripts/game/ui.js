@@ -3,55 +3,46 @@
 const app = require('../app.js');
 
 function renderItem(item){
-let template = `<div data-item="${item.id}" class="graffiti-one-container">
-  <div class="graffiti-one-img-container">
-    <a href="#">
-      <img src="${item.url || "#"}" alt="Image to be linked to" class="graffiti-one-img">
-    </a>
-  </div>
-<!-- This div contains all code relevant to img one's info-->
-  <div class="graffiti-one-info">
-     <div class="row">
-     <div class="col-md-4 id-container"><p>Tag Name:<br> ${item.id}</p></div>
-     <div class="col-md-4 tag-name-container"><p>Tag Name:<br> ${item.title}</p></div>
-     <div class="col-md-4 artist-name-container">Artist:<br>  ${item.artist}</div>
-     <div class="col-md-4 location-container">Location:<br>  ${item.location}</div>
-     <div class="col-md-4 date-container">Date Photographed:<br>  ${item.date}</div>
-     <div class="col-md-4 url-container">URL:<br>  ${item.url}</div>
-     <div class="col-md-4 comment-display">Comments:<br>  ${item.comment}</div>
-     </div>
-     <div class="row">
-       <div class="col-md-12 description-container">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-     </div>
-  </div>
-  <div class="comment-box">
-    <form id="comment-form" data-item="${item.id}">
-      <input type="text" class="comment-container" name="battle[comment]">
-      <input type="submit" class="comment-btn">
-    </form>
-  </div>
-  <div class="delete-btn-container">
-    <form id='delete-btn-form' data-item="${item.id}">
-      <!-- <input type="text" name="id"  placeholder="ID"> -->
-      <input type="submit" class='delete-btn' value="DELETE PICTURE">
-    </form>
-  </div>
-<!--  <div class="delete-btn-container">
-    <form id='delete-btn-form'>
-      <input type="text" name="battle[id]" placeholder="ID">
-      <input type="submit" class='delete-btn' name='delete-picture-btn' value="Click this button to delete this image and information">
-    </form>
-  </div> -->
-</div>`;
+  let template = `<div data-item="${item.id}" class="graffiti-one-container">
+    <div class="graffiti-one-img-container">
+      <a href="#">
+        <img src="${item.url || "#"}" alt="Image to be linked to" class="graffiti-one-img">
+      </a>
+    </div>
+    <div class="graffiti-one-info">
+       <div class="row">
+       <div class="col-md-4 id-container"><p>Tag Name:<br> ${item.id}</p></div>
+       <div class="col-md-4 artist-name-container">Artist:<br>  ${item.artist}</div>
+       <div class="col-md-4 url-container">URL:<br>  ${item.url}</div>
+       <div class="col-md-4 comment-display">Comments:<br>  ${item.comment}</div>
+       </div>
+    </div>
+    <div class="comment-box">
+      <form id="comment-form" data-item="${item.id}">
+        <input type="text" class="comment-container" name="battle[comment]">
+        <input type="submit" class="comment-btn">
+      </form>
+    </div>
+    <div class="delete-btn-container">
+      <form id='delete-btn-form' data-item="${item.id}">
+        <!-- <input type="text" name="id"  placeholder="ID"> -->
+        <input type="submit" class='delete-btn' value="DELETE PICTURE">
+      </form>
+    </div>
+  <!--  <div class="delete-btn-container">
+      <form id='delete-btn-form'>
+        <input type="text" name="battle[id]" placeholder="ID">
+        <input type="submit" class='delete-btn' name='delete-picture-btn' value="Click this button to delete this image and information">
+      </form>
+    </div> -->
+  </div>`;
 
 $('.graffiti-main').html(template);
 }
 
 const getPictureSuccess = (data) => {
-  console.log(data);
-  console.log("---- get picture success should be working ----")
   if (Array.isArray(data.battles) && data.battles.length === 0){
-    alert("--- NO DATA IN THE DB, this is an empty array----")
+    $('.user-facing-output').text("If you'd like to view a picture, input the URL below and press 'submit'");
    // If the object is an array AND it is also an empty array do this
  } else {
    if (app.counter >= data.length) {
@@ -61,61 +52,46 @@ const getPictureSuccess = (data) => {
    app.counter += 1;
  // Else do this stuff (like if you are actually returned data)
  }
-
-  $(".out-put-display").text("You successfully got images from the database!");
+  $('.graffiti-main').show();
+  $('.user-facing-output').html("You successfully got images from the database!");
 };
 
 const uploadPictureSuccess = (data) => {
-  // console.log("checking if data getting passed to uploadPictureSuccess exists", data);
-  // console.log(app.items);
-  // console.log(data); // this contains the info as of now.
-  // app.items = app.items;
-  // app.items = data;
-  // console.log("checking if data getting passed to uploadPictureSuccess exists", data);
-  // console.log("console log app.items", app.items);
-  // console.log("console log data", data); // this contains the info as of now.
-  // console.log("console log app.data", app.data);
-  // console.log(app.items);
-  // if (app.items.length > 0) {
-  // app.items.push(data);
-  // console.log('data successfully pushed');
-  // } else {
-  //
-  // };
-
-  console.log('Upload is working');
-  console.log(data.id);
+  $('.user-facing-output').text("You've successfully uploaded a picture!" + data + "has been uploaded");
 };
 
 const deletePictureSuccess = () => {
-  console.log("SUCCESSFUL DELETE");
-  // console.log(app.items);
-  // app.items.shift();
-  // console.log(app.items);
-  // if(app.items.length === 0 ){
-  //     $('.get-picture-button').hide();
-  //   return;
-  // }
+  $('.user-facing-output').text("You've successfully deleted a picture from the Graffiti Gallery!");
 };
 
 const commentPictureSuccess = (id) => {
   $('.comment-display').text(id);
-  console.log(app.items.id);
+  $('.user-facing-output').text("You're comment was successful!");
+};
+
+const deleteFailure = (err) => {
+  $('.user-facing-output').text("You cannot delete pictures from the gallery that were not uploaded by you.");
+};
+
+const commentFailure = (err) => {
+  $('.user-facing-output').text("You cannot comment on pictures that were not uploaded by you.");
 };
 
 const failure = (err) => {
-  console.error(err);
+  $('.user-facing-output').text("There has been an error! Please check the developer view and contact your local developer! Make sure your backend is running correctly and that the request has timed out. Or it could be something else! Sorry about that! I'd suggest googleing it!");
 };
 
 const failureToUploadUrl = (err) => {
-  alert("You need to use a proper URL / make sure your eckend is running correctly / the requesttimed out. Or it could be something else! Sorry about that! I'd suggest googleing it!");
-}
+  $('.user-facing-output').text("In order to upload a picture, you need to enter the valid URL of an image.");
+};
 
 module.exports = {
   getPictureSuccess,
   uploadPictureSuccess,
   deletePictureSuccess,
   commentPictureSuccess,
+  deleteFailure,
+  commentFailure,
   failure,
   failureToUploadUrl,
 };

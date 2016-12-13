@@ -43,7 +43,6 @@ const commentPicture = function (id, data) {
   });
 };
 
-
 module.exports = {
   getPicture,
   uploadPicture,
