@@ -31,22 +31,22 @@ const signOutSuccess = () => {
   $('#upload-picture-form').hide();
   $('.graffiti-main').hide();
   $('.get-pictures-button-container').hide();
-  $('.user-facing-output').text("You've successfully signed out!");
+  $('.out-put-display').text("You've successfully signed out!");
   $('#change-password').hide();
   $('.instructions').show();
 };
 
 const changePasswordSuccess = () => {
-  $('.user-facing-output').text("You've successfully changed your password!");
+  $('.out-put-display').text("You've successfully changed your password!");
 };
 
 const success = (data) => {
   $('#sign-in').show();
-  $('.user-facing-output').text("You've successfully signed up!");
+  $('.out-put-display').text("You've successfully signed up!");
 };
 
 const fail = (error) => {
-  $('.user-facing-output').text("There has been an error! Make sure that you've signed up and have properly input your crediential information!");
+  $('.out-put-display').text("There has been an error! Make sure that you've signed up and have properly input your crediential information!");
 
 };
 
