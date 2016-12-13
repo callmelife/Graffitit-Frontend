@@ -3,7 +3,7 @@
 const app = require('../app.js');
 
 $('#sign-out').hide();
-$('.upload-image-container').hide();
+$('#upload-picture-form').hide();
 $('.graffiti-main').hide();
 $('.get-pictures-button-container').hide();
 $('#change-password').hide();
@@ -13,10 +13,10 @@ $('.post-sign-in-instructions').hide();
 const signInSuccess = (data) => {
   app.user = data.user;
   app.counter = 0;
-  $('.user-facing-output').html("You've successfully signed in");
+  $('.out-put-display').html("You've successfully signed in");
   $('#sign-in').hide();
   $('#sign-out').show();
-  $('.upload-image-container').show();
+  $('#upload-picture-form').show();
   $('.get-pictures-button-container').show();
   $('#change-password').show();
   $('#sign-up').hide();
@@ -28,7 +28,7 @@ const signOutSuccess = () => {
   app.user = null;
   app.counter = 0;
   $('#sign-out').hide();
-  $('.upload-image-container').hide();
+  $('#upload-picture-form').hide();
   $('.graffiti-main').hide();
   $('.get-pictures-button-container').hide();
   $('.user-facing-output').text("You've successfully signed out!");
