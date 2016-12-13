@@ -14,26 +14,29 @@ const signInSuccess = (data) => {
   app.user = data.user;
   app.counter = 0;
   $('.out-put-display').html("You've successfully signed in");
-  $('#sign-in').hide();
+  $('#sign-in').fadeOut(1000);
   $('#sign-out').show();
   $('#upload-picture-form').show();
   $('.get-pictures-button-container').show();
   $('#change-password').show();
-  $('#sign-up').hide();
-  $('.instructions').hide();
-  $('.post-sign-in-instructions').show()
+  $('#sign-up').fadeOut(1000);
+  $('.instructions').fadeOut(1000);
+  $('.post-sign-in-instructions').show();
 };
 
 const signOutSuccess = () => {
   app.user = null;
   app.counter = 0;
-  $('#sign-out').hide();
-  $('#upload-picture-form').hide();
-  $('.graffiti-main').hide();
-  $('.get-pictures-button-container').hide();
+  $('#sign-out').fadeOut(1000);
+  $('#upload-picture-form').fadeOut(1000);
+  $('.graffiti-main').fadeOut(1000);
+  $('.get-pictures-button-container').fadeOut(1000);
   $('.out-put-display').text("You've successfully signed out!");
-  $('#change-password').hide();
+  $('#change-password').fadeOut(1000);
   $('.instructions').show();
+  $('#sign-in').show();
+  $('#sign-up').show();
+  $('.post-sign-in-instructions').fadeOut(1000);
 };
 
 const changePasswordSuccess = () => {

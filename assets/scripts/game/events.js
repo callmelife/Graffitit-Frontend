@@ -38,6 +38,7 @@ const onCommentPicture = function (event) {
   let id = $(event.target).data("item");
   let commentField = getFormFields(event.target);
   api.commentPicture(id, commentField)
+    .then(ui.commentPictureSuccess)
     // .then(api.getPicture)
     // .then(ui.getPictureSuccess)
     .catch(ui.commentFailure);

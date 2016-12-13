@@ -34,6 +34,7 @@ function renderItem(item){
 $('.graffiti-main').html(template);
 }
 
+
 const getPictureSuccess = (data) => {
   if (Array.isArray(data.battles) && data.battles.length === 0){
     $('.out-put-display').text("If you'd like to view a picture, input the URL below and press 'submit'");

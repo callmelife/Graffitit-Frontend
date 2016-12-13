@@ -9,37 +9,50 @@
   <body class ="container">
     <!-- <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
-         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Graffit Gallery</a>
-         </div>
+       <div class="navbar-header">
+           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Graffit Gallery</a>
+       </div>
 
-         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">SIGN UP / IN <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li>
-                  <a>
-                  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#sign-up-modal">
-                    SIGN UP BRO!
-                  </button></a></li>
-
-                <li><a href="#">SIGN UP</a></li>
-                <li><a href="#">SIGN IN</a></li>
-                <li><a href="#">CHANGE PASSWORD</a></li>
-                <li><a href="#">SIGN OUT</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-              </ul>
+       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">SIGN UP / IN
+                <span class="caret"></span>
+              </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a>
+                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#sign-up-modal">
+                  <a> SIGN UP</a>
+                </button>
+              </a>
             </li>
-          </ul>
-         </div>
+            <li role="separator" class="divider"></li>
+            <li>
+              <a>
+                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#sign-in-modal">
+                  <a> SIGN In</a>
+                </button>
+              </a>
+            </li>
+            <li role="separator" class="divider"></li>
+
+              <li><a href="#">SIGN UP</a></li>
+              <li><a href="#">SIGN IN</a></li>
+              <li><a href="#">CHANGE PASSWORD</a></li>
+              <li><a href="#">SIGN OUT</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+            </ul>
+          </li>
+        </ul>
+       </div>
        </div>
      </nav>
      <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -65,8 +78,30 @@
                </div>
              </div>
            </div>
-         </div> -->
-
+     </div>
+         <div class="modal fade" id="sign-in-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+               <div class="modal-dialog" role="document">
+                 <div class="modal-content">
+                   <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                     <h4 class="modal-title">Sign Up Modal</h4>
+                   </div>
+                   <div class="modal-body">
+                     <form id="sign-up'">
+                       <div class="form-group">
+                         <label for="exampleInputEmail1">Email address</label>
+                         <input type="email" class="form-control" id="sign-up-email" placeholder="Email">
+                       </div>
+                       <div class="form-group">
+                         <label for="exampleInputPassword1">Password</label>
+                         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                       </div>
+                       <button type="submit" class="btn btn-default">Submit</button>
+                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                     </div>
+                     </div>
+          </div>
+        </div> -->
 
     <div class="main container-fluid">
       <div class="introduction">Welcome to CallMeLife's Graffiti Gallery!</div>
@@ -76,10 +111,10 @@
         <form id="sign-up">
           <fieldset>
             <div class='auth-instructions'>Enter Your User Information To Sign Up Below:</div>
-            <input type="text" name="credentials[email]" value="" placeholder="Email">
-            <input type="password" name="credentials[password]" value="" placeholder="Password">
-            <input type="password" name="credentials[password_confirmation]" value="" placeholder="Confirm Password">
-            <input type="submit" name="submit" value="Sign up!">
+              <input type="text" name="credentials[email]" value="" placeholder="Email">
+              <input type="password" name="credentials[password]" value="" placeholder="Password">
+              <input type="password" name="credentials[password_confirmation]" value="" placeholder="Confirm Password">
+              <input type="submit" name="submit" value="Sign up!">
             <div class="sign-up-display"></div>
           </fieldset>
         </form>
@@ -111,8 +146,8 @@
       </div>
         <form id="upload-picture-form">
           <fieldset class="picture-input-fieldset">
-            Title: <input type="text" name="battle[title]" placeholder="Name of piece"><br>
-            Artist: <input type="text" name="battle[artist]" placeholder="Artist's Name"><br>
+          <!--  Title: <input type="text" name="battle[title]" placeholder="Name of piece"><br>
+            Artist: <input type="text" name="battle[artist]" placeholder="Artist's Name"><br> -->
             URL: <input type="text" name="battle[url]" placeholder="Enter url Here!"><br>
           </fieldset>
             <input type="submit" class="upload-picture-btn" name="upload-btn" value="Click Here to Post Your Favorite Graffiti picture and information!">

@@ -39,9 +39,9 @@ fieldset {
 
 .upload-image-container {
   background-color: $maroon;
-  text-align: center;
   // width: auto;
   height: 15%;
+  text-align: center;
   width: 20%;
 };
 
@@ -125,13 +125,14 @@ input {
   color: $maroon;
   display: flex;
   // margin-left: 20%;
+  height: 1200px;
   margin-top: 1.5%;
   width: 90%;
-  height: 1200px;
 };
 
 .delete-btn-container {
   padding-bottom: 50px;
+  padding-left: 15%;
 };
 
 .graffiti-one-container {
@@ -169,6 +170,7 @@ img {
 .comment-display {
   display: block;
   margin-left: 30%;
+  text-overflow: ellipsis;
   // margin-left: 20%;
 };
 
@@ -182,10 +184,6 @@ img {
 };
 
 #get-picture-form {
-  padding-left: 15%;
-};
-
-.delete-btn-container {
   padding-left: 15%;
 };
 
@@ -270,9 +268,9 @@ img {
 };
 
 .text-muted {
-  padding-top: 50px;
   color: $white;
   font-family: cursive;
   font-size: 24px;
+  padding-top: 50px;
   text-align: center;
 };
