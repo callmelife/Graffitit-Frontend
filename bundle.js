@@ -95,12 +95,8 @@ webpackJsonp([0],[
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 
 	var app = __webpack_require__(5);
-	// const getFormFields = require('../../../lib/get-form-fields.js');
-
-	//authApi.signUp(authUi.success, authUi.failure, data);
 
 	var signUp = function signUp(data) {
-	  console.log(data);
 	  return $.ajax({
 	    url: app.host + '/sign-up/',
 	    method: 'POST',
@@ -109,7 +105,6 @@ webpackJsonp([0],[
 	};
 
 	var signIn = function signIn(data) {
-	  console.log(data);
 	  return $.ajax({
 	    url: app.host + '/sign-in/',
 	    method: 'POST',
@@ -137,20 +132,6 @@ webpackJsonp([0],[
 	    data: data
 	  });
 	};
-
-	// CODE FOR AJAX
-	//
-	// const getGameById = (data) => {
-	//   return $.ajax({
-	//     url: app.host + "/games",
-	//     method: 'GET',
-	//     headers: {
-	//       Authorization: 'Token token=' + app.user.token
-	//     },
-	//     data: data,
-	//   });
-	// };
-
 
 	module.exports = {
 	  signUp: signUp,
@@ -320,6 +301,15 @@ webpackJsonp([0],[
 	var onUploadPicture = function onUploadPicture(event) {
 	  event.preventDefault();
 	  var battle = getFormFields(event.target).battle;
+	  var jpg = "jpg";
+	  var png = "png";
+	  var gif = "gif";
+
+	  var extensionString = battle.url.split('.').pop();
+	  if (extensionString === jpg) {} else if (extensionString === png) {} else if (extensionString === gif) {} else {
+	    $('.out-put-display').text("It appears that the URL you've tried to upload to the database is not an image URL or the URL uses an extension that is not accepted by this application. All URLs entered into the field MUST end with '.jpg', '.png', or '.gif' and must not have any character after the file extension.");
+	    return;
+	  }
 	  api.uploadPicture({ battle: battle }).then(ui.uploadPictureSuccess).catch(ui.failureToUploadUrl);
 	  $('.get-picture-button').show();
 	  $('.delete-btn').show();
@@ -328,11 +318,8 @@ webpackJsonp([0],[
 	var onDeletePicture = function onDeletePicture(event) {
 	  event.preventDefault();
 	  var id = $(event.target).data("item");
-	  api.deletePicture(id).then(ui.deletePictureSuccess)
-	  // .then(api.getPicture)
-	  // .then(ui.getPictureSuccess)
-	  .catch(ui.deleteFailure);
-	  $('.graffiti-one-container').hide();
+	  api.deletePicture(id).then(ui.deletePictureSuccess).then(api.getPicture).then(ui.getPictureSuccess).catch(ui.deleteFailure);
+	  // $('.graffiti-one-container').hide();
 	};
 
 	var onCommentPicture = function onCommentPicture(event) {
@@ -471,7 +458,7 @@ webpackJsonp([0],[
 	};
 
 	var failureToUploadUrl = function failureToUploadUrl(err) {
-	  $('.out-put-display').text("In order to upload a picture, you need to enter the valid URL of an image.");
+	  $('.out-put-display').text("In order to upload a picture, you need to enter the valid URL of an image. Please ensure that the URL is an image's URL and that the URL uses an extension that is accepted by this application. All URLs entered into the field MUST end with '.jpg', '.png', or '.gif' and must not have any character after the file extension.");
 	};
 
 	module.exports = {
