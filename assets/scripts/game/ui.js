@@ -3,8 +3,8 @@
 const app = require('../app.js');
 
 function renderItem(item){
-  let template =
-`<div data-item="${item.id}" class="graffiti-one-container">
+
+  let template = `<div data-item="${item.id}" class="graffiti-one-container">
   <div class="graffiti-one-img-container">
     <a href="#">
       <img src="${item.url || "#"}" alt="Image to be linked to" class="graffiti-one-img">
@@ -13,8 +13,7 @@ function renderItem(item){
   <div class="graffiti-one-info">
      <div class="row">
          <div class="col-md-4 id-container"><p>Tag Name:<br> ${item.id}</p></div>
-           <!--  <div class="col-md-4 artist-name-container">Artist:<br>  ${item.artist}</div>
-         <div class="col-md-4 url-container">URL:<br>  ${item.url}</div> -->
+         <div class="col-md-4 url-container">URL:<br>  ${item.url}</div>
          <div class="col-md-4 comment-display">Comments:<br>  ${item.comment}</div>
      </div>
   </div>
@@ -34,25 +33,24 @@ function renderItem(item){
 $('.graffiti-main').html(template);
 }
 
-
 const getPictureSuccess = (data) => {
   if (Array.isArray(data.battles) && data.battles.length === 0){
     $('.out-put-display').text("If you'd like to view a picture, input the URL below and press 'submit'");
    // If the object is an array AND it is also an empty array do this
  } else {
-   if (app.counter >= data.length) {
+   if (app.counter >= data.battles.length) {
      app.counter = 0;
    }
-   renderItem(data[app.counter]);
+   renderItem(data.battles[app.counter]);
    app.counter += 1;
  // Else do this stuff (like if you are actually returned data)
  }
   $('.graffiti-main').show();
-  $('.out-put-display').html("You successfully got images from the database!");
+  $('.out-put-display').html("You successfully got images from the database! If no images are being displayed below, that means there are no images current in the database. Try uploading one and then try to load it!");
 };
 
 const uploadPictureSuccess = (data) => {
-  $('.out-put-display').text("You've successfully uploaded a picture!" + data + "has been uploaded");
+  $('.out-put-display').text("You've successfully uploaded a picture!");
 };
 
 const deletePictureSuccess = () => {

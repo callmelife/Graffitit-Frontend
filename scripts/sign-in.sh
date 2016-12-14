@@ -11,6 +11,9 @@
 #!/bin/bash
 
 #curl "http://localhost:3000/sign-in" \
+
+
+EMAIL=
 curl "http://httpbin.org/post" \
   --include \
   --request POST \

@@ -1,6 +1,7 @@
 # #!/bin/bash
 #
-# #curl "http://localhost:3000/change-password/${ID}" \
+ID="1"
+curl "http://localhost:4741/battles/${ID}" \
 # curl "http://httpbin.org/patch?id=${ID}" \
 #   --include \
 #   --request PATCH \
