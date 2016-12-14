@@ -15,6 +15,21 @@ const onGetPicture = function (event) {
 const onUploadPicture = function (event) {
   event.preventDefault();
   let battle = getFormFields(event.target).battle;
+  let jpg = "jpg";
+  let png = "png";
+  let gif = "gif";
+
+  let extensionString = battle.url.split('.').pop();
+    if (extensionString === jpg) {
+    }
+    else if (extensionString === png) {
+    }
+    else if (extensionString === gif) {
+    }
+    else {
+        $('.out-put-display').text("It appears that the URL you've tried to upload to the database is not an image URL or the URL uses an extension that is not accepted by this application. All URLs entered into the field MUST end with '.jpg', '.png', or '.gif' and must not have any character after the file extension.");
+        return;
+    }
   api.uploadPicture({battle})
     .then(ui.uploadPictureSuccess)
     .catch(ui.failureToUploadUrl);
@@ -27,10 +42,10 @@ const onDeletePicture = function (event) {
   let id = $(event.target).data("item");
   api.deletePicture(id)
     .then(ui.deletePictureSuccess)
-    // .then(api.getPicture)
-    // .then(ui.getPictureSuccess)
+    .then(api.getPicture)
+    .then(ui.getPictureSuccess)
     .catch(ui.deleteFailure);
-  $('.graffiti-one-container').hide();
+  // $('.graffiti-one-container').hide();
 };
 
 const onCommentPicture = function (event) {

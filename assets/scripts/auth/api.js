@@ -1,12 +1,8 @@
 'use strict';
 
 const app = require('../app');
-// const getFormFields = require('../../../lib/get-form-fields.js');
-
-//authApi.signUp(authUi.success, authUi.failure, data);
 
 const signUp = function(data){
-  console.log(data);
   return $.ajax({
     url: app.host + '/sign-up/',
     method: 'POST',
@@ -15,7 +11,6 @@ const signUp = function(data){
 };
 
 const signIn = function(data){
-  console.log(data);
   return $.ajax({
     url: app.host + '/sign-in/',
     method: 'POST',
@@ -44,24 +39,9 @@ const changePassword = function(data){
   });
 };
 
-// CODE FOR AJAX
-//
-// const getGameById = (data) => {
-//   return $.ajax({
-//     url: app.host + "/games",
-//     method: 'GET',
-//     headers: {
-//       Authorization: 'Token token=' + app.user.token
-//     },
-//     data: data,
-//   });
-// };
-
-
 module.exports = {
   signUp,
   signIn,
   signOut,
   changePassword,
-  // getGameById
 };

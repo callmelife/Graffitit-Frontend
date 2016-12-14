@@ -75,7 +75,7 @@ const failure = (err) => {
 };
 
 const failureToUploadUrl = (err) => {
-  $('.out-put-display').text("In order to upload a picture, you need to enter the valid URL of an image.");
+  $('.out-put-display').text("In order to upload a picture, you need to enter the valid URL of an image. Please ensure that the URL is an image's URL and that the URL uses an extension that is accepted by this application. All URLs entered into the field MUST end with '.jpg', '.png', or '.gif' and must not have any character after the file extension.");
 };
 
 module.exports = {
