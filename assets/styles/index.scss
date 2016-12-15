@@ -17,7 +17,7 @@ body {
 fieldset {
   background-color: $maroon;
   color: $white;
-  font-family: cursive;
+  font-family: sans-serif;
   margin-bottom: 15px;
   margin-top: 15px;
   padding-left: 3.5%;
@@ -56,7 +56,7 @@ fieldset {
 
 input {
   color: $maroon;
-  font-family: cursive;
+  font-family: sans-serif;
   margin-bottom: 15px;
   margin-top: 15px;
   text-align: center;
@@ -72,7 +72,7 @@ input {
 
 .instructions {
   color: $white;
-  font-family: cursive;
+  font-family: sans-serif;
   font-size: 30px;
   padding-top: 25px;
   text-align: center;
@@ -80,14 +80,15 @@ input {
 
 .auth-instructions {
   color: $white;
-  font-family: cursive;
+  font-family: sans-serif;
   font-size: 36px;
   text-align: center;
 };
 
 .post-sign-in-instructions {
-  font-family: cursive;
-  font-size: 30px;
+  color: $white;
+  font-family: sans-serif;
+  font-size: 50px;
   padding-bottom: 25px;
   padding-top: 25px;
   text-align: center;
@@ -97,7 +98,7 @@ input {
   background-color: $maroon;
   border-radius: 15%;
   color: $white;
-  font-family: cursive;
+  font-family: sans-serif;
   height: 15%;
   padding-bottom: 15px;
   padding-top: 15px;
@@ -106,7 +107,7 @@ input {
 };
 
 .intro-text {
-  font-family: cursive;
+  font-family: sans-serif;
   font-size: 48px;
   font-style: italic;
   padding-bottom: 25px;
@@ -146,6 +147,15 @@ input {
   padding-bottom: 5%;
   width: 90%;
 };
+
+h3 {
+  color: $maroon;
+  display: block;
+  font-family: cursive;
+  font-size: 57px;
+  text-align: center;
+};
+
 
 #comment-form {
   display: block;
@@ -269,7 +279,7 @@ img {
 
 .text-muted {
   color: $white;
-  font-family: cursive;
+  font-family: sans-serif;
   font-size: 24px;
   padding-top: 50px;
   text-align: center;

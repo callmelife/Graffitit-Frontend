@@ -42,10 +42,9 @@ const onDeletePicture = function (event) {
   let id = $(event.target).data("item");
   api.deletePicture(id)
     .then(ui.deletePictureSuccess)
-    .then(api.getPicture)
-    .then(ui.getPictureSuccess)
+    // .then(api.getPicture)
+    // .then(ui.getPictureSuccess)
     .catch(ui.deleteFailure);
-  // $('.graffiti-one-container').hide();
 };
 
 const onCommentPicture = function (event) {

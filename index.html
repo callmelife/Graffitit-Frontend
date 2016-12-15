@@ -9,8 +9,8 @@
   <body class ="container">
     <div class="main container-fluid">
       <div class="introduction">Welcome to CallMeLife's Graffiti Gallery!</div>
-      <div class="instructions">In order to get started, please create an account and then proceed to sign into that account using our secure authorization process! If you already have an account, just go right ahead and sign in!</div>
-      <div class="post-sign-in-instructions">In order to get started, please upload an image to the gallery by inputing a VALID image URL into the text field labeled 'URL'. Please ensure that the URL is an image's URL and that the URL uses an extension that is accepted by this application. All URLs entered into the field MUST end with '.jpg', '.png', or '.gif' and must not have any character after the file extension.</div>
+      <div class="instructions">Firstly, I'd suggest zooming your view of the page out - this page was built with with certain goals in mind, not all unessential goals were accomplished. Anyhow! In order to get started, please create an account and then proceed to sign into that account using our secure authorization process! If you already have an account, just go right ahead and sign in!</div>
+      <div class="post-sign-in-instructions">In order to get started, please upload an image to the gallery by inputing a VALID image URL into the text field labeled 'URL'. Please ensure that the URL is an image's URL and that the URL uses an extension that is accepted by this application. All URLs entered into the field MUST end with '.jpg', '.png', or '.gif' and must not have any characters after the file extension.</div>
       <div class="user-auth">
         <form id="sign-up">
           <fieldset>
@@ -50,21 +50,20 @@
       </div>
         <form id="upload-picture-form">
           <fieldset class="picture-input-fieldset">
-          <!--  Title: <input type="text" name="battle[title]" placeholder="Name of piece"><br>
-            Artist: <input type="text" name="battle[artist]" placeholder="Artist's Name"><br> -->
             URL: <input type="text" name="battle[url]" placeholder="Enter url Here!"><br>
           </fieldset>
-            <input type="submit" class="upload-picture-btn" name="upload-btn" value="Click Here to Post Your Favorite Graffiti picture and information!">
+            <input type="submit" class="upload-picture-btn" name="upload-btn" value="Click Here to Post Your Favorite Graffiti Picture!">
         </form>
       <div class="get-pictures-button-container">
-        <div class="intro-text">Click Below to Cycle Through the Gallery!</div>
+        <div class="intro-text">Click below to cycle through all of the images that have been uploaded to the Gallery!</div>
         <form id="get-picture-form">
-          <input type="submit" class="get-picture-button" name="pictures-button" value="Click Here To Load All of Your Uploaded Pictures">
-          <div class="get-picture-display"></div>
+          <input type="submit" class="get-picture-button" name="pictures-button" value="Click Here to Load and Cycle Through the Gallery!">
         </form>
       </div>
       <div class="out-put-display">
       </div>
+      <h3 class="frame-label">All pictures look better in a frame...</h3>
+      <br>
       <div class="graffiti-main"></div>
     </div>
     <footer class="footer">
@@ -72,6 +71,5 @@
           <p class="text-muted">Website Created by <a href="https://github.com/callmelife">Matthew Sommers</a></p>
      </div>
    </footer>
-  <!-- <script src="app.js" type="text/javascript" charset="utf-8" async defer></script> -->
   </body>
 </html>
