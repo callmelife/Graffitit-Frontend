@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Graffiti Gallery</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="dependencies.js" type="text/javascript" charset="utf-8" defer></script>
+    <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
+  </head>
+  <body class ="container">
+    <div>TEST</div>
+    <!-- <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+         <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Graffit Gallery</a>
+         </div>
+
+         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">SIGN UP / IN <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li>
+                  <a>
+                  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#sign-up-modal">
+                    SIGN UP BRO!
+                  </button></a></li>
+
+                <li><a href="#">SIGN UP</a></li>
+                <li><a href="#">SIGN IN</a></li>
+                <li><a href="#">CHANGE PASSWORD</a></li>
+                <li><a href="#">SIGN OUT</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+         </div>
+       </div>
+     </nav>
+     <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+           <div class="modal-dialog" role="document">
+             <div class="modal-content">
+               <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                 <h4 class="modal-title">Sign Up Modal</h4>
+               </div>
+               <div class="modal-body">
+                 <form id="sign-up'">
+                   <div class="form-group">
+                     <label for="exampleInputEmail1">Email address</label>
+                     <input type="email" class="form-control" id="sign-up-email" placeholder="Email">
+                   </div>
+                   <div class="form-group">
+                     <label for="exampleInputPassword1">Password</label>
+                     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                   </div>
+                   <button type="submit" class="btn btn-default">Submit</button>
+                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                 </form>
+               </div>
+             </div>
+           </div>
+         </div> -->
+         <nav class="navbar navbar-default navbar-fixed-top">
+           <div class="container">
+             <div class="navbar-header">
+               <a class="navbar-brand" href='#'>Graffiti Gallery</a>
+             </div>
+
+             <div id="navbar" class="navbar-collapse collapse">
+               <ul class="nav navbar-nav navbar-right" id="navbar-right-side">
+                 <li class="auth-dropdown dropdown">
+                   <a href="#" class="auth-dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign up/Sign in <span class="caret"></span></a>
+                   <ul class="dropdown-menu">
+                     <!-- launch modal -->
+                     <li><a><div class="dropdown-item sign-up-btn" data-toggle="modal" data-target="#sign-up-modal">
+                       Sign up!
+                     </div></a></li>
+                     <li><a ><div class="dropdown-item sign-in-btn" data-toggle="modal" data-target="#sign-in-modal">
+                       Sign in!
+                     </div></a></li>
+                     <li><a ><div class="dropdown-item change-pw-btn hidden" data-toggle="modal" data-target="#change-password-modal">
+                       Change password
+                     </div></a></li>
+                     <li><a>
+                     <form id="sign-out">
+                       <fieldset>
+                         <div class="dropdown-item hidden"id="sign-out-btn"><input type="submit" name="submit" value="Sign out!"></div>
+                       </fieldset>
+                     </form>
+                     </a></li>
+                   </ul>
+                 </li>
+               </ul>
+             </div>
+             <div class="auth-instruction">Sign-up and sign-in in order to use the Bucket List Application!</div>
+           </div>
+         </nav>
+         <!-- Nav Ends Here -->
+
+    <div class="main container-fluid">
+      <div class="introduction">Welcome to CallMeLife's Graffiti Gallery!</div>
+      <div class="instructions">In order to get started, please create an account and then proceed to sign into that account using our secure authorization process! If you already have an account, just go right ahead and sign in!</div>
+      <div class="post-sign-in-instructions">In order to get started, please upload an image to gallery put inputing a VALID image URL into the text field labeled 'URL'. This is the only field that requires input in order for the image to be posted to teh Gallery. If you know the name of the artist or have a title in mind for the picture, you're also able to enter that information into their respective fields.</div>
+      <div class="user-auth">
+        <form id="sign-up">
+          <fieldset>
+            <div class='auth-instructions'>Enter Your User Information To Sign Up Below:</div>
+            <input type="text" name="credentials[email]" value="" placeholder="Email">
+            <input type="password" name="credentials[password]" value="" placeholder="Password">
+            <input type="password" name="credentials[password_confirmation]" value="" placeholder="Confirm Password">
+            <input type="submit" name="submit" value="Sign up!">
+            <div class="sign-up-display"></div>
+          </fieldset>
+        </form>
+        <form id="sign-in">
+          <fieldset>
+            <div class='auth-instructions'>Enter Your User Credentials To Sign In Below:</div>
+            <input id="sign-in-email"type="text" name="credentials[email]" value="" placeholder="Email">
+            <input id="sign-in-password" type="password" name="credentials[password]" value="" placeholder="Password">
+            <input type="submit" name="submit" value="Sign in!">
+            <div class="sign-in-display"></div>
+          </fieldset>
+        </form>
+        <form id="sign-out">
+          <fieldset>
+            <div class='auth-instructions'>Press The Button Below To Sign Out:</div>
+            <input type="submit" name="submit" value="Sign out!">
+            <div class="sign-out-display"></div>
+          </fieldset>
+        </form>
+        <form id="change-password">
+          <fieldset>
+            <div class='auth-instructions'>Enter Your Current Password And Your New Password Below:</div>
+            <input type="password" name="passwords[old]" value="" placeholder="Old Password">
+            <input type="password" name="passwords[new]" value="" placeholder="New Password">
+            <input type="submit" name="submit" value="Change Password">
+            <div class="change-password-display"></div>
+          </fieldset>
+        </form>
+      </div>
+        <form id="upload-picture-form">
+          <fieldset class="picture-input-fieldset">
+            Title: <input type="text" name="battle[title]" placeholder="Name of piece"><br>
+            Artist: <input type="text" name="battle[artist]" placeholder="Artist's Name"><br>
+            URL: <input type="text" name="battle[url]" placeholder="Enter url Here!"><br>
+          </fieldset>
+            <input type="submit" class="upload-picture-btn" name="upload-btn" value="Click Here to Post Your Favorite Graffiti picture and information!">
+        </form>
+      <div class="get-pictures-button-container">
+        <div class="intro-text">Click Below to Cycle Through the Gallery!</div>
+        <form id="get-picture-form">
+          <input type="submit" class="get-picture-button" name="pictures-button" value="Click Here To Load All of Your Uploaded Pictures">
+          <div class="get-picture-display"></div>
+        </form>
+      </div>
+      <div class="out-put-display">
+      </div>
+      <div class="graffiti-main"></div>
+    </div>
+    <footer class="footer">
+      <div class="container">
+          <p class="text-muted">Website Created by <a href="https://github.com/callmelife">Matthew Sommers</a></p>
+     </div>
+   </footer>
+  </body>
+</html>

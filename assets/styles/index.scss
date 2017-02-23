@@ -11,8 +11,169 @@ $sky-blue: #5792f8;
 
 body {
   background-color: $grey;
-  width: auto;
+
+
 };
+
+#get-previous-picture {
+  float: left;
+  // margin-left: -120px;
+  padding-top: 200px;
+}
+
+#get-next-picture {
+  float: right;
+  // margin-right: -60px;
+  padding-bottom: 400px;
+
+}
+.bigbrand {
+  font-family: fantasy;
+  color: $maroon;
+  padding-left: 400px;
+}
+
+.button-reveal {
+  font-family: 'Pattaya', sans-serif;
+  float: left;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #0fdb56;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 20px;
+  padding: 24px;
+  width: 150px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  position: relative;
+  left: 95px;
+  bottom: 500px;  }
+
+.button-reveal span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  -webkit-transition: 0.5s;
+  transition: 0.5s; }
+
+.button-reveal span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s; }
+
+.button-reveal:hover span {
+  padding-right: 25px; }
+
+.button-reveal:hover span:after {
+  opacity: 1;
+  right: 0; }
+
+.button-reveal2 {
+  font-family: 'Pattaya', sans-serif;
+  float: left;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #4289f4;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 20px;
+  padding: 20px;
+  width: 150px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  position: relative;
+  right: 95px;
+}
+
+.button-reveal2 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  -webkit-transition: 0.5s;
+  transition: 0.5s; }
+
+.button-reveal2 span:after {
+  content: '\00ab';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: -20px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s; }
+
+.button-reveal2:hover span {
+  padding-left: 25px; }
+
+.button-reveal2:hover span:after {
+  opacity: 1;
+  left: 0; }
+
+
+.main {
+  width: 80%;
+  background-color: $maroon;
+  height: 740px;
+}
+
+.previous-picture-btn {
+  content: '\00bb';
+  color: $black;
+  margin-top: 400px;
+}
+
+.image-container {
+  background-color: $white;
+  border-radius: 15px;
+  height: 65%;
+  width: 80%;
+  position: relative;
+  left: 10%;
+  top: 10%;
+}
+
+.learn-more-btn {
+  position: relative;
+  bottom: 45px;
+  left: 35px;
+}
+
+.gallery-view {
+  background-color: $maroon;
+  height: 80%;
+  margin-bottom: 60px;
+  margin-left: 10%;
+  margin-top: 90px;
+  width: 80%;
+  background-image: url("http://previews.123rf.com/images/yurkina/yurkina1107/yurkina110700009/9945751-illustration-pattern-background-frame-from-valid-on-black-background-Stock-Vector.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.title-header {
+  color: $maroon;
+  font-family: cursive;
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.title-header {
+  margin-bottom: 40px;
+  margin-top: 70px;
+}
+
 
 fieldset {
   background-color: $maroon;
@@ -62,13 +223,7 @@ input {
   text-align: center;
 };
 
-.introduction {
-  color: $maroon;
-  font-family: cursive;
-  font-size: 50px;
-  font-weight: bold;
-  text-align: center;
-};
+
 
 .instructions {
   color: $white;

@@ -7,9 +7,17 @@ const getFormFields = require('../../../lib/get-form-fields.js');
 const onSignUp = function(event){
   event.preventDefault();
   let data = getFormFields(event.target);
-  api.signUp(data)
-  .done(ui.success)
+  let credentials = data;
+  if (data.credentials.password !== data.credentials.password_confirmation) {
+    ui.signUpFailure();
+  } else {
+    api.signUp(data)
+    .then(function() {
+      return api.signIn(credentials);
+    })
+  .done(ui.signInSuccess)
   .fail(ui.fail);
+  }
 };
 
 const onSignIn = function(event){
